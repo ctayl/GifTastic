@@ -36,11 +36,14 @@ main = {
         var key = "UPA3OlvXVVrYNiKnas5HbGqoosksA9ll";
         var URL = "https://api.giphy.com/v1/gifs/search?api_key="
         var queryURL = URL + key + "&q=" + topic + "&limit=25&offset=0&rating=G&lang=en";
-        for (let i = 0; i < 10; i++) 
+        $("#img-row").text("");
+
+        for (let i = 0; i < 9; i++) {
         $.ajax({
             url: queryURL,
             method: "GET",
         }).done(function (response) {
+            
             console.log(response);
             
            /////////////// <DIV>  /////////////
@@ -62,7 +65,7 @@ main = {
 
             // Get and set the img link of the responses 
             img.attr("src", response.data[i].images.downsized.url);
-            img.attr("style", "max-width:200px; max-height:200px");
+            img.attr("style", "max-width:150px; max-height:150px");
             
             // Put img in panel
             pan.append(img);
@@ -73,6 +76,7 @@ main = {
             // Insert div into img-row
             $("#img-row").append(div);
         })
+    }
 
     }
 }
@@ -80,7 +84,7 @@ main = {
 $(document).ready(function () {
     main.renderButtons();
     $("button").on("click", function(){
-        main.render("cat");
+        main.render($(this).val());
     })
 
 });
