@@ -207,7 +207,7 @@ $(document).ready(function () {
     main.renderButtons();
     // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
     $('body').on('click', 'img', function () {
-        console.log("test");
+        console.log($(this).attr("src"));
         // main.animate($(this));
     })
 
