@@ -1,6 +1,12 @@
+
+
 body { 
     padding-top: 70px; 
     height: 100%;
+}
+
+#header-custom {
+    height: 100px
 }
 
 html {
@@ -46,7 +52,8 @@ html {
 h3 {
     text-align: center;
     margin-top: 5px;
-
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .linkDiv {
@@ -74,13 +81,13 @@ p, a {
 .page-header {
     background: #969696;
     margin-top: 0px;
-    padding: 10px;
+    padding: 30px;
     border: 5px solid white;
     border-radius: 10px;
-    height: 70px;
+    height: 100px;
 }
 
-.col-xs-6 {
+.col-sm-6 {
     max-width: 100%;
 }
 /* #img-row {

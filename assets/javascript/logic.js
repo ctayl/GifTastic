@@ -91,7 +91,7 @@ main = {
                 let div = $("<div>");
 
                 // Assign it a class 
-                div.addClass("col-xs-6");
+                div.addClass("col-sm-6");
 
                 ///////////// PAN /////////////
 
