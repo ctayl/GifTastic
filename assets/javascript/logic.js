@@ -1,5 +1,3 @@
-
-
 main = {
     // create an array of strings, each one related to a topic that interests you.
     topics: ["computers", "cats", "video games", "art", "nature"],
@@ -102,33 +100,3 @@ $(document).ready(function () {
 // Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
 
 // Make a  1/3 column
-let makeCol = () => {
-    // Create a new div
-    let div = $("<div>");
-
-    // Assign a class 
-    div.addClass("col-xs-4");
-
-    return div
-}
-
-for (let i = 0; i < 10; i++) {
-
-
-
-    // Create a new div
-    let div = $("<div>");
-
-    // Assign its value
-    div.val(main.topics[i]);
-
-    // Assign a class 
-    div.addClass("col-xs-4");
-
-    // Create a new div
-    let pan = $("<div>");
-
-    // Assign unique ID's
-    div.attr("id", "button-" + [i]);
-
-}
