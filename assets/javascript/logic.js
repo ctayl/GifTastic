@@ -61,16 +61,12 @@ main = {
 
     // Adds a button
     addBtn: function () {
-        alert($("#btn-input").val());
         main.topics.push($("#btn-input").val());
-        alert(main.topics);
-        // main.render($(this).val());
         main.renderButtons();
     },
 
     // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
     render: function (topic) {
-        console.log("test");
         var key = "UPA3OlvXVVrYNiKnas5HbGqoosksA9ll";
         var URL = "https://api.giphy.com/v1/gifs/search?api_key="
         var queryURL = URL + key + "&q=" + topic + "&limit=25&offset=0&rating=G&lang=en";
@@ -81,7 +77,6 @@ main = {
             url: queryURL,
             method: "GET",
         }).done(function (response) {
-            console.log(response);
             for (let i = 0; i < 24; i++) {
 
 
