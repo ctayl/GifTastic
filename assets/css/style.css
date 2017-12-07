@@ -1,5 +1,18 @@
 body { 
     padding-top: 70px; 
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    min-height: 100%;
+}
+
+#bkg-custom {
+    background: #777777;
+    height: 100%;
+    padding-top: 15px;
+    overflow:auto;
 }
 
 .thumbnail, .panel-default {
@@ -25,13 +38,15 @@ body {
     padding: 5px;
 }
 
-#btn-custom {
-    margin: auto;
-    text-align: center;
+#button-custom {
+    margin-left: 10px;;
+    
 }
 
 h3 {
     text-align: center;
+    margin-top: 5px;
+
 }
 
 .linkDiv {
@@ -50,3 +65,26 @@ p, a {
 .thumbnail {
     z-index: 100;
 }
+
+#btn-input {
+    border: 5px solid rgba(127, 166, 211, 0.671);
+    border-radius: 5px;
+}
+
+.page-header {
+    background: #969696;
+    margin-top: 0px;
+    padding: 10px;
+    border: 5px solid white;
+    border-radius: 10px;
+    height: 70px;
+}
+
+.col-xs-6 {
+    max-width: 100%;
+}
+/* #img-row {
+    padding: 0;
+    margin-left: -20px;
+    margin-right: -20px;
+} */

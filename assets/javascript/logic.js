@@ -47,8 +47,8 @@ main = {
             // Assign a class 
             btn.addClass("btn btn-default");
 
-            // Assign unique ID's
-            btn.attr("id", "button-" + [i]);
+            // Assign ID's
+            btn.attr("id", "button-custom");
 
 
             // Insert into button row
@@ -144,6 +144,7 @@ main = {
                     // Set title to Untitled
                     title.html("<h3>Untitled<h3>");
                 }
+
 
 
                 // Make a rated row
