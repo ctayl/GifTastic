@@ -1,27 +1,29 @@
 //////////////// HIGH LEVEL LOGIC /////////////////
 
 $(document).ready(function () {
+
+    // calls renderButtons at page load
     main.renderButtons();
-    // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
+
+    // Calls animate function on click
     $('body').on('click', 'img', function () {
         main.animate($(this));
     })
 
-    $("button").on("click", function () {
+    // Calls render function on button click
+    $('body').on('click', 'button', function () {
         main.render($(this).val());
     })
 
-    $("#add-btn").on("click", function () {
-        alert($("#btn-input").val());
-        main.topics.push($("#btn-input").val());
-        alert(main.topics);
-        // main.render($(this).val());
-        main.renderButtons();
+    // Calls addBtn function on add button click
+    $('body').on('click', '#add-btn', function () {
+        main.addBtn();
     })
 
+    
 });
 
-/////////////////////////////////////////////////////
+/////////////////// CORE LOGIC //////////////////////
 
 main = {
     // create an array of strings, each one related to a topic that interests you.
@@ -56,8 +58,19 @@ main = {
 
 
     },
+
+    // Adds a button
+    addBtn: function() {
+        alert($("#btn-input").val());
+        main.topics.push($("#btn-input").val());
+        alert(main.topics);
+        // main.render($(this).val());
+        main.renderButtons();
+    },
+
     // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
     render: function (topic) {
+        console.log("test");
         var key = "UPA3OlvXVVrYNiKnas5HbGqoosksA9ll";
         var URL = "https://api.giphy.com/v1/gifs/search?api_key="
         var queryURL = URL + key + "&q=" + topic + "&limit=25&offset=0&rating=G&lang=en";
@@ -132,21 +145,6 @@ main = {
                     title.html("<h3>Untitled<h3>");
                 }
 
-                ////////////// ANI_BTN ////////////
-
-                // // Create a button
-                // let btn = $("<button>");
-
-                // // Set text
-                // btn.text("Animate!");
-
-                // // Assign it a class 
-                // btn.addClass("btn btn-default");
-
-                // btn.attr("id", "btn-custom");
-
-
-                ////////////// RATED //////////////
 
                 // Make a rated row
                 let rated = $("<div>");
@@ -226,8 +224,7 @@ main = {
         })
     },
 
-
-
+    // Switches between animated and still states
     animate: function (target) {
 
         if (target.attr("src") === target.attr("data-old")) {
@@ -240,17 +237,5 @@ main = {
     }
 }
 
+/////////////////////////////////////////////////////
 
-
-// function () {  // HERE NOW ONLY FOR TEST MOVE TO BOTTOM LATER
-
-//     // var reverseData = $(this).data().reverse;
-//     // $(this).data("reverse", this.src);
-//     // this.src = reverseData;
-// });
-
-
-
-// Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
-
-// Make a  1/3 column
