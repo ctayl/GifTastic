@@ -1,3 +1,52 @@
 body { 
     padding-top: 70px; 
 }
+
+.thumbnail, .panel-default {
+    max-height: 100%;
+    max-width: 100%;
+    padding: 5px;
+}
+
+.page-header {
+    height: 60px;
+}
+
+.panel-default {
+    height: 500px; 
+}
+
+.thumbnail {
+    margin: auto;
+    max-height: 150px;
+}
+
+.caption {
+    padding: 5px;
+}
+
+#btn-custom {
+    margin: auto;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.linkDiv {
+    margin: auto;
+}
+
+p, a {
+    text-align: center;
+    font-size: 20px;
+    width: 100%;
+    max-width: 100%;
+    word-wrap: break-word;
+    margin: 10px 0px 2px 0px;
+}
+
+.thumbnail {
+    z-index: 100;
+}
