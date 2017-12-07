@@ -1,12 +1,12 @@
 
 
 body { 
-    padding-top: 70px; 
+    padding-top: 50px; 
     height: 100%;
 }
 
 #header-custom {
-    height: 100px
+    height: 50px
 }
 
 html {
@@ -21,14 +21,14 @@ html {
     overflow:auto;
 }
 
-.thumbnail, .panel-default {
+.panel-default {
     max-height: 100%;
     max-width: 100%;
     padding: 5px;
 }
 
 .page-header {
-    height: 60px;
+    height: 90px;
 }
 
 .panel-default {
@@ -37,7 +37,8 @@ html {
 
 .thumbnail {
     margin: auto;
-    max-height: 150px;
+    max-height: 225px;
+    max-width: 90%;
 }
 
 .caption {
@@ -49,7 +50,7 @@ html {
     
 }
 
-h3 {
+h3, h4 {
     text-align: center;
     margin-top: 5px;
     max-width: 100%;

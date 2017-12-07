@@ -20,7 +20,7 @@ $(document).ready(function () {
         main.addBtn();
     })
 
-    
+
 });
 
 /////////////////// CORE LOGIC //////////////////////
@@ -60,7 +60,7 @@ main = {
     },
 
     // Adds a button
-    addBtn: function() {
+    addBtn: function () {
         alert($("#btn-input").val());
         main.topics.push($("#btn-input").val());
         alert(main.topics);
@@ -82,7 +82,7 @@ main = {
             method: "GET",
         }).done(function (response) {
             console.log(response);
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 24; i++) {
 
 
                 /////////////// COL //////////////
@@ -119,16 +119,21 @@ main = {
 
                         // If so, check if title is also longer than 30 characters
                         if (response.data[i].title.length > 30) {
+                            let output = [];
+                            for (let j = 0; j < 30; j++) {
 
+                                output.push(response.data[i].title[j]);
+
+                            }
+
+                            
                             // If so, make the title tiny
-                            title.html("<p style='font-size: 16px;'>" + response.data[i].title + "<p>");
-
+                            title.html("<h4>" + output.join("") + "...</h4>");
 
                             // Otherwise, 
                         } else {
-
                             // Just make title small
-                            title.html("<p>" + response.data[i].title + "<p>");
+                            title.html("<h4>" + response.data[i].title + "<h>");
                         }
 
                         // If none of the above, 
@@ -190,13 +195,13 @@ main = {
                 let img = $("<img>");
 
                 // Get and set the img link of the responses 
-                img.attr("src", response.data[i].images.downsized_still.url);
+                img.attr("src", response.data[i].images.original_still.url);
 
                 // Get and set the moving link responses 
-                img.attr("data-new", response.data[i].images.downsized.url);
+                img.attr("data-new", response.data[i].images.original.url);
 
                 // Get and set the still link responses 
-                img.attr("data-old", response.data[i].images.downsized_still.url);
+                img.attr("data-old", response.data[i].images.original_still.url);
 
                 // Assign it a class 
                 img.addClass("thumbnail");
