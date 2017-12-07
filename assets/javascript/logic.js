@@ -1,9 +1,36 @@
+//////////////// HIGH LEVEL LOGIC /////////////////
+
+$(document).ready(function () {
+    main.renderButtons();
+    // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
+    $('body').on('click', 'img', function () {
+        main.animate($(this));
+    })
+
+    $("button").on("click", function () {
+        main.render($(this).val());
+    })
+
+    $("#add-btn").on("click", function () {
+        alert($("#btn-input").val());
+        main.topics.push($("#btn-input").val());
+        alert(main.topics);
+        // main.render($(this).val());
+        main.renderButtons();
+    })
+
+});
+
+/////////////////////////////////////////////////////
+
 main = {
     // create an array of strings, each one related to a topic that interests you.
     topics: ["computers", "cats", "video games", "art", "nature"],
 
     // take the topics in this array and create buttons in your HTML
     renderButtons: function (target) {
+
+        $("#button-row").html("");
 
         // Loop for each topic
         for (let i = 0; i < main.topics.length; i++) {
@@ -43,7 +70,7 @@ main = {
         }).done(function (response) {
             console.log(response);
             for (let i = 0; i < 10; i++) {
-                
+
 
                 /////////////// COL //////////////
 
@@ -107,16 +134,16 @@ main = {
 
                 ////////////// ANI_BTN ////////////
 
-                // Create a button
-                let btn = $("<button>");
+                // // Create a button
+                // let btn = $("<button>");
 
-                // Set text
-                btn.text("Animate!");
+                // // Set text
+                // btn.text("Animate!");
 
-                // Assign it a class 
-                btn.addClass("btn btn-default");
+                // // Assign it a class 
+                // btn.addClass("btn btn-default");
 
-                btn.attr("id", "btn-custom");
+                // btn.attr("id", "btn-custom");
 
 
                 ////////////// RATED //////////////
@@ -169,6 +196,9 @@ main = {
                 // Get and set the moving link responses 
                 img.attr("data-new", response.data[i].images.downsized.url);
 
+                // Get and set the still link responses 
+                img.attr("data-old", response.data[i].images.downsized_still.url);
+
                 // Assign it a class 
                 img.addClass("thumbnail");
 
@@ -182,7 +212,7 @@ main = {
                 // Put img in panel
                 pan.append(img);
 
-                pan.append(btn);
+                // pan.append(btn);
 
                 // Insert rating into div
                 pan.append(rated);
@@ -199,23 +229,18 @@ main = {
 
 
     animate: function (target) {
-        target.attr("src", $(this).data);
+
+        if (target.attr("src") === target.attr("data-old")) {
+            target.attr("src", target.attr("data-new"));
+        } else if (target.attr("src") === target.attr("data-new")) {
+            target.attr("src", target.attr("data-old"));
+        } else {
+            return
+        }
     }
 }
 
-$(document).ready(function () {
-    main.renderButtons();
-    // When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
-    $('body').on('click', 'img', function () {
-        console.log($(this).attr("src"));
-        // main.animate($(this));
-    })
 
-    $("button").on("click", function () {
-        main.render($(this).val());
-    })
-
-});
 
 // function () {  // HERE NOW ONLY FOR TEST MOVE TO BOTTOM LATER
 
@@ -224,14 +249,6 @@ $(document).ready(function () {
 //     // this.src = reverseData;
 // });
 
-
-
-
-// When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing
-
-// Under every gif, display its rating (PG, G, so on). 
-// * This data is provided by the GIPHY API.
-// * Only once you get images displaying with button presses should you move on to the next step.
 
 
 // Add a form to your page takes the value from a user input box and adds it into your `topics` array. Then make a function call that takes each topic in the array remakes the buttons on the page.
